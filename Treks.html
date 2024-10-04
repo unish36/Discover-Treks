@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Discover Himalayan Treks</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      /* Primary Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo img {
+        height: 50px;
+      }
+
+      .searchbar {
+        display: flex;
+      }
+
+      .searchbar input {
+        padding: 5px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+      }
+
+      .searchbar button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        background-color: #f09d51;
+        color: white;
+        cursor: pointer;
+      }
+
+      .contact a {
+        color: white;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+
+      /* Marquee Section */
+      .marquee-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        top: 60px;
+        z-index: 999;
+      }
+
+      .marquee-1,
+      .marquee-2 {
+        color: white;
+        font-size: 18px;
+      }
+
+      .marquee-1 span {
+        display: inline-block;
+        animation: marquee-right 12s linear infinite;
+      }
+
+      @keyframes marquee-right {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(100%);
+        }
+      }
+
+      .marquee-2 span {
+        display: inline-block;
+        animation: marquee-up 12s linear infinite;
+      }
+
+      @keyframes marquee-up {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(-100%);
+        }
+      }
+
+      /* Main Navigation (Secondary Navbar) */
+      .main-nav {
+        background-color: #444;
+        padding: 10px;
+        position: fixed;
+        top: 110px;
+        width: 100%;
+        z-index: 998;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .nav-list li a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .nav-list li:first-child a {
+        font-weight: bold;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: calc(
+          100vh - 110px
+        ); /* Full screen minus the height of the primary navbar and marquee */
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        background-image: url("photos/img.jpg");
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero p {
+        font-size: 24px;
+      }
+
+      .hero-btn {
+        background-color: #e67e22;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .hero-btn:hover {
+        background-color: #d35400;
+      }
+
+      /* Content Section */
+      .content {
+        padding-top: 120px;
+      }
+
+      .content section {
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 32px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+
+        .hero-btn {
+          padding: 8px 16px;
+        }
+
+        .nav-list {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .marquee-container {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .marquee-1,
+        .marquee-2 {
+          width: 100%;
+          font-size: 16px;
+        }
+      }
+
+      /* Activities Section */
+      .activities {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px 0;
+      }
+
+      .activity {
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 15px;
+        text-align: center;
+        width: 200px;
+      }
+
+      .activity h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .activity p {
+        font-size: 16px;
+        color: #666;
+      }
+    </style>
+    
+    
+    
+    
+  </head>
+  <body>
+    <!-- Primary Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="photos/logo.png" alt="Logo" />
+      </div>
+      <div class="searchbar">
+        <input type="text" name="search" id="search" placeholder="Search" />
+        <button class="btn btn-sm">Search</button>
+      </div>
+      <div class="contact">
+        <a href="tel:+9779851020546">Talk to an Expert</a>
+        <a
+          href="https://api.whatsapp.com/send?phone=9779851020546"
+          target="_blank"
+          >WhatsApp</a
+        >
+        <a href="mailto:discovertrekking@gmail.com">Email</a>
+      </div>
+    </nav>
+
+    <!-- Main Navbar (Secondary Navigation) -->
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a href="#destination">Destination</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </nav>
+
+    <!-- Marquee Section -->
+    <div class="marquee-container">
+      <div class="marquee-1">
+        <span
+          >Where adventure meets the Himalayas – your journey starts here!</span
+        >
+      </div>
+      <div class="marquee-2">
+        <span>Unlock 20% savings on unforgettable Himalayan experiences!</span>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="hero-text">
+        <h1>Explore the Majestic Himalayas</h1>
+        <p>
+          Join us for unforgettable trekking experiences across Nepal, Bhutan,
+          India, and Tibet.
+        </p>
+        <a href="#book-now" class="hero-btn">Book Now</a>
+      </div>
+    </section>
+    <h1>footer</h1>
+    <footer class="footer">
+      <div class="container">
+        <div class="col1"></div>
+        <a href="#" class="brand">brand</a>
+        <ul class="mediaicons">
+        <li>
+          <a href="#">
+            <i class="Fab fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+            <a href="#"</li>
+            <i class="Fab fa-Instagram"></i>
+            </a>
+            <li>
+                <a href="#"</li>
+                <i class="Fab fa-Linkedin"></i>
+                </a>
+                <li>
+                    <a href="#">
+                    <i class="Fab fa-Twitter"></i>
+                    </a>
+                </li>
+                </ul>
+      </div>
+      <div class="col2"
+      <ul class="menu">
+    <li>
+        <a href="#">About</a>
+    </li>
+    <li>
+        <a href="#">Explore</a>
+    </li>
+    <li>
+        <a href="#">Contact</a>
+    </li>
+    <li>
+        <a href="#">Do Business with us</a>
+    </li>
+    <li>
+        <a href="#">Blog</a>
+    </li>
+    <li>
+        <a href="#">Service</a>
+    </li>
+    </ul>
+    <p>
+        Discover Treks – Your trusted adventure partner in Nepal, Tibet, Bhutan, and India for over 20 years.
+    </p>
+    </div> 
+    <div class="col3">
+    <p>Discover More with Us! Subscribe for updates, travel guides, and special offers.</p>
+    <form>
+        <div class="input-wrap">
+            <input
+            type="email"
+            placeholder="exaample@gmail.com"
+            />
+            <button type="submit">
+                <i class=" fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </form>
+    <ul class="service-icons"
+    <li>
+    <a href="#">
+        <i calss="fab fa-cc-Visa"></i>
+    </a>
+    </li>
+    <li>
+        <a href="#">
+            <i calss="fab fa-cc-Mastercard"></i>
+        </a>
+        </li>
+        <li>
+            <a href="#">
+                <i calss="fab fa-cc-JCB"></i>
+            </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i calss="fab fa-cc-SCT"></i>
+                </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i calss="fab fa-cc-UNIONPAY"></i>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i calss="fab fa-cc-MAETRO"></i>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i calss="fab fa-cc-MAETRO"></i>
+                            </a>
+                            </li>
+                        </ul>                         
+    </div>
+    </footer>
+
+    <!-- JavaScript for Background Image Change -->
+    <script>
+      const images = [
+        "photos/img.jpg",
+        "photos/img1.jpg",
+        "photos/img2.jpg",
+        "photos/img3.jpg",
+      ];
+      let currentImageIndex = 0;
+      const heroSection = document.querySelector("#hero-section");
+
+      function changeBackground() {
+        heroSection.style.backgroundImage = `url(${images[currentImageIndex]})`;
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+      }
+
+      changeBackground();
+      setInterval(changeBackground, 5000);
+    </script>
+    <!-- Include the footer -->
+    <?php include 'components/footer.html'; ?>
+  </body>
+</html>

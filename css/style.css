@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Primary Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.searchbar {
+  display: flex;
+}
+
+.searchbar input {
+  padding: 5px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.searchbar button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #f09d51;
+  color: white;
+  cursor: pointer;
+}
+
+.contact a {
+  color: white;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+/* Marquee Section */
+.marquee-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 40px; /* Reduced height to match screenshot */
+  margin-top: 50px; /* Space for primary navbar */
+  position: fixed;
+  top: 50px; /* Positioned below the primary navbar */
+  z-index: 999;
+}
+
+.marquee-1,
+.marquee-2 {
+  color: white;
+  font-size: 14px; /* Adjusted font size */
+}
+
+.marquee-1 span {
+  display: inline-block;
+  animation: marquee-right 12s linear infinite;
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.marquee-2 span {
+  display: inline-block;
+  animation: marquee-up 12s linear infinite;
+}
+
+@keyframes marquee-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+/* Main Navigation (Secondary Navbar) */
+.main-nav {
+  background-color: #444;
+  padding: 5px; /* Reduced padding to tighten space */
+  position: fixed;
+  top: 90px; /* Adjusted based on marquee height */
+  width: 100%;
+  z-index: 998;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-list li:first-child a {
+  font-weight: bold; /* Highlighting Destinations */
+}
+
+/* Hero Section */
+.hero {
+  height: calc(100vh - 160px); /* Adjusted for navbar and marquee */
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-image: url("photos/img.jpg");
+  margin-top: -10px; /* Remove gap caused by marquee */
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px; /* Added margin for better spacing */
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 20px; /* Added margin for better spacing */
+}
+
+.hero-btn {
+  background-color: #e67e22;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #d35400;
+}
+
+/* Content Section */
+.content {
+  padding-top: 120px; /* Ensure content doesn't hide behind navbars */
+}
+
+.content section {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero-btn {
+    padding: 8px 16px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .marquee-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .marquee-1,
+  .marquee-2 {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+/* Activities Section - Custom Styling */
+.activities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.activity {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  width: 200px; /* Adjust width as needed */
+}
+
+.activity h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.activity p {
+  font-size: 16px;
+  color: #666;
+}
